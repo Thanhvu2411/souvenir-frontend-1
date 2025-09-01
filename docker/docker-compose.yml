@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  giftie-frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - giftie-network
+
+  # Nếu muốn thêm database sau này
+  # postgres:
+  #   image: postgres:15-alpine
+  #   environment:
+  #     POSTGRES_DB: giftie_db
+  #     POSTGRES_USER: giftie_user
+  #     POSTGRES_PASSWORD: giftie_password
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   networks:
+  #     - giftie-network
+
+networks:
+  giftie-network:
+    driver: bridge
+
+# volumes:
+#   postgres_data:
+

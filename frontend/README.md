@@ -381,24 +381,3 @@ npm run build
 aws s3 sync .next s3://your-bucket-name
 ```
 
-## 🤝 Đóng góp
-
-1. Fork project
-2. Tạo feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Mở Pull Request
-
-## 📄 License
-
-Project này được phân phối dưới MIT License. Xem file `LICENSE` để biết thêm chi tiết.
-
-## 📞 Liên hệ
-
-- **Email:** support@giftie.vn
-- **Website:** https://giftie.vn
-- **GitHub:** [Repository URL]
-
----
-
-**Made with ❤️ by Giftie Team**
